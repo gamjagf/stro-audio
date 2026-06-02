@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STRO 업무 해결 오디오 특강</title>
+
+<meta property="og:title" content="프롬프트 암기 대신 STRO로 업무 해결하기">
+<meta property="og:description" content="AI에게 질문하는 방법보다 내 문제를 해결하는 방법을 배우는 오디오 특강">
+<meta property="og:image" content="stro_thumbnail.png">
+<meta property="og:type" content="website">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+  width:100%;
+  min-height:100%;
+  background:#061022;
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+}
+body{display:flex;justify-content:center;align-items:flex-start;}
+.page{width:100%;max-width:430px;position:relative;background:#061022;}
+.thumbnail{width:100%;display:block;}
+
+.start-link{
+  position:absolute;
+  left:8%;
+  bottom:10.6%;
+  width:84%;
+  height:8.2%;
+  border-radius:999px;
+  background:rgba(255,255,255,0);
+  text-decoration:none;
+  -webkit-tap-highlight-color:rgba(255,255,255,0.22);
+  cursor:pointer;
+}
+
+.start-link:focus{
+  outline:3px solid rgba(255,255,255,0.9);
+  outline-offset:3px;
+}
+
+.player{
+  display:none;
+  background:#07152b;
+  padding:18px 16px 24px;
+  color:#fff;
+  border-top:1px solid rgba(255,255,255,0.12);
+}
+
+.player.show{display:block;}
+
+.player h1{
+  font-size:20px;
+  line-height:1.35;
+  margin-bottom:10px;
+}
+
+.player p{
+  font-size:14px;
+  color:#d9ecff;
+  margin-bottom:14px;
+}
+
+audio{width:100%;}
+
+.notice{
+  margin-top:10px;
+  font-size:13px;
+  color:#b9e7ff;
+}
+
+@media (min-width:431px){
+  .page{
+    margin:18px auto;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 18px 42px rgba(0,0,0,0.45);
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+  <img src="stro_thumbnail.png"
+       alt="프롬프트 암기 대신 STRO로 업무 해결하기 오디오 특강 대표 이미지"
+       class="thumbnail">
+
+  <a href="#audioPlayer"
+     class="start-link"
+     id="startButton"
+     aria-label="바로가기 버튼을 눌러 오디오 재생 버튼 열기">
+  </a>
+
+  <section class="player" id="audioPlayer">
+    <h1>🎧 STRO 업무 해결 오디오 특강</h1>
+    <p>프롬프트 암기 대신 STRO로 업무 해결하기</p>
+
+    <audio controls preload="metadata">
+      <source src="stro_audio.mp3" type="audio/mpeg">
+      브라우저가 오디오 재생을 지원하지 않습니다.
+    </audio>
+
+    <div class="notice">위 재생 버튼을 눌러 오디오를 들으세요.</div>
+  </section>
+
+</main>
+
+<script>
+const startButton = document.getElementById("startButton");
+const audioPlayer = document.getElementById("audioPlayer");
+
+startButton.addEventListener("click", function(event){
+  event.preventDefault();
+  audioPlayer.classList.add("show");
+
+  setTimeout(function(){
+    audioPlayer.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }, 100);
+});
+</script>
+
+</body>
+</html>
